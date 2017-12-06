@@ -1,0 +1,57 @@
+{
+  "name": "loopback-ts-to-json-schema",
+  "version": "1.0.0",
+  "description": "A PoC to demonstrate converting TypeScript models to JSON Schema",
+  "keywords": [
+    "loopback-application",
+    "loopback"
+  ],
+  "main": "index.js",
+  "engines": {
+    "node": ">=8"
+  },
+  "scripts": {
+    "build": "lb-tsc && node ./dist/generate-schemas.js",
+    "build:watch": "lb-tsc --watch",
+    "clean": "lb-clean",
+    "lint": "npm run prettier:check && npm run tslint",
+    "lint:fix": "npm run prettier:fix && npm run tslint:fix",
+    "prettier:cli": "lb-prettier \"**/*.ts\" \"**/*.js\"",
+    "prettier:check": "npm run prettier:cli -- -l",
+    "prettier:fix": "npm run prettier:cli -- --write",
+    "tslint": "lb-tslint",
+    "tslint:fix": "npm run tslint -- --fix",
+    "pretest": "npm run clean && npm run build",
+    "posttest": "npm run lint",
+    "start": "npm run build && node .",
+    "prepare": "npm run build"
+  },
+  "repository": {
+    "type": "git"
+  },
+  "author": "",
+  "license": "MIT",
+  "files": [
+    "README.md",
+    "index.js",
+    "index.d.ts",
+    "dist",
+    "dist6"
+  ],
+  "dependencies": {
+    "@loopback/context": ">=4.0.0-alpha.18",
+    "@loopback/core": ">=4.0.0-alpha.20",
+    "@loopback/repository": "^4.0.0-alpha.17",
+    "@loopback/rest": ">=4.0.0-alpha.7",
+    "@types/fs-extra": "^4.0.5",
+    "@types/lodash": "^4.14.87",
+    "fs-extra": "^4.0.3",
+    "lodash": "^4.17.4",
+    "readdir-enhanced": "^2.1.0",
+    "typescript-json-schema": "^0.20.0"
+  },
+  "devDependencies": {
+    "@loopback/build": ">=4.0.0-alpha.4",
+    "@loopback/testlab": ">=4.0.0-alpha.13"
+  }
+}
